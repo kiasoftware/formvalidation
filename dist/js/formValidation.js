@@ -1164,13 +1164,15 @@ if (typeof jQuery === 'undefined') {
                 if ($errors.filter('[data-' + ns + '-result="' + this.STATUS_INVALID + '"]').length > 0) {
                     return false;
                 }
-
-                // If the field is not validated
-                if ($errors.filter('[data-' + ns + '-result="' + this.STATUS_NOT_VALIDATED + '"]').length > 0
-                    || $errors.filter('[data-' + ns + '-result="' + this.STATUS_VALIDATING + '"]').length > 0)
-                {
-                    return null;
-                }
+				if(fields[i].enabled==true)
+				{
+					// If the field is not validated
+					if ($errors.filter('[data-' + ns + '-result="' + this.STATUS_NOT_VALIDATED + '"]').length > 0
+						|| $errors.filter('[data-' + ns + '-result="' + this.STATUS_VALIDATING + '"]').length > 0)
+					{
+						return null;
+					}
+				}
             }
 
             return true;
